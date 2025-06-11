@@ -52,7 +52,7 @@ if not st.session_state.generado and not st.session_state.en_proceso:
                 if plantilla_opcion == "Básica":
                     st.markdown("**Opciones para plantilla básica:**")
                     encabezados_seleccionados = st.multiselect("Selecciona columnas para mostrar como texto", df.columns.tolist())
-                    fotos_por_slide = st.slider("Cantidad de fotos por diapositiva", min_value=1, max_value=8, value=4)
+                    fotos_por_slide = st.slider("Cantidad de fotos por diapositiva", min_value=1, max_value=4, value=2)
                     color_fuente = st.color_picker("Color de texto", "#000000")
 
                     st.session_state.encabezados_seleccionados = encabezados_seleccionados
