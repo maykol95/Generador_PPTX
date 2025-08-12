@@ -7,7 +7,10 @@ import pandas as pd
 
 def detectar_columna_imagenes(df):
     for col in df.columns:
-        if df[col].dropna().astype(str).str.contains(r'(https?://|\.jpg|\.png|\.jpeg|^[\w-]{25,}$)', case=False).any():
+        if df[col].dropna().astype(str).str.contains(
+            r'(https?://.*\.(jpg|png|jpeg)$|\.jpg$|\.png$|\.jpeg$)', 
+            case=False
+        ).any():
             return col
     return None
 
@@ -49,3 +52,4 @@ def convertir_columnas_a_str(df):
 
 def filtrar_df_por_imagenes(df, columna_img):
     return df[df[columna_img].notna() & df[columna_img].astype(str).str.strip().ne("")]
+
